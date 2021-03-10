@@ -1,0 +1,12 @@
+[Unit]
+Description=creativelectron api gunicorn daemon
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/creativelectron/api
+ExecStart=/var/www/creativelectron/api/env/bin/gunicorn main.wsgi:application -c /var/www/creativelectron/api/scripts/gunicorn.conf.py
+
+[Install]
+WantedBy=multi-user.target
